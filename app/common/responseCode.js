@@ -1,0 +1,7 @@
+module.exports={
+	SUCCESS:0,
+	ERROR:1,
+	NO_AUTH:10,
+	NO_LOGIN:20,
+	ILLEGAL_ARGUMENT:2
+}
