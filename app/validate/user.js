@@ -3,7 +3,7 @@ module.exports = app =>{
     let { validator } = app;
   
     // 校验用户名是否正确
-    validator.addRule('username', (rule, value)=>{
+    /* validator.addRule('username', (rule, value)=>{
       if (/^\d+$/.test(value)) {
         return "用户名应该是字符串";
       }
@@ -18,5 +18,5 @@ module.exports = app =>{
       if (value.length < 7 || value.length > 12) {
         return '电话的长度应该在7-11之间'
       }
-    });
+    }); */
   };

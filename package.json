@@ -19,6 +19,7 @@
     "koa-json-error": "^3.1.2",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",
+    "pm2": "^5.1.2",
     "silly-datetime": "^0.1.2",
     "uuid": "^8.3.2",
     "xlsx": "^0.17.0"
@@ -31,6 +32,7 @@
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
     "eslint-config-egg": "^7.1.0",
+    "nodemon": "^1.19.4",
     "md5": "^2.3.0"
   },
   "engines": {
@@ -40,7 +42,9 @@
     "start": "egg-scripts start --daemon --title=egg-server --env=prod",
     "start:docker": "egg-scripts start --title=egg-server --env=prod",
     "stop": "egg-scripts stop --title=egg-server",
-    "dev": "egg-bin dev --env=dev",
+    "dev": "egg-bin dev --env=dev --ignore-stderr",
+    "prd-dev": "cross-env NODE_ENV=prd_dev pm2 start bin/pm2-prd-dev.config.js",
+    "prd": "pm2 start bin/www",
     "local": "egg-bin dev",
     "test": "egg-bin dev --env=test",
     "debug": "egg-bin debug",
