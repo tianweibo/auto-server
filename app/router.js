@@ -14,16 +14,16 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.post('/api/user/login',controller.user.login);//系统登录-done
   router.post('/api/user/editPassword',new Auth(1).check,controller.user.editPassword);//密码修改
-  router.post('/api/user/create',new Auth(10).check,controller.user.create);//创建用户
-  router.get('/api/user/useful',new Auth(10).check,controller.user.useful);//用户禁用与否
+  router.post('/api/user/create',new Auth(1).check,controller.user.create);//创建用户
+  router.get('/api/user/useful',new Auth(1).check,controller.user.useful);//用户禁用与否
   router.get('/api/user/resetPassword',new Auth(10).check,controller.user.resetPassword);//用户禁用与否
   router.post('/api/user/update',new Auth(10).check,controller.user.update);//编辑用户
   router.get('/api/user/detail',new Auth(10).check,controller.user.detail);//用户详情
   router.delete('/api/user/delete',new Auth(10).check,controller.user.delete);//用户删除
-  router.post('/api/user/list',new Auth(10).check,controller.user.list);// 用户列表获取-done   new Auth(1).check
+  router.post('/api/user/list',new Auth(1).check,controller.user.list);// 用户列表获取-done   new Auth(1).check
   router.get('/api/user/loginOut',controller.user.loginOut);// 用户退出-done
   router.get('/api/user/isLogin',controller.user.isLogin);// 是否登录
-  router.post('/api/user/dataGift',controller.user.dataGift);// 数据赠予-done
+  router.post('/api/user/dataGift',new Auth(1).check,controller.user.dataGift);// 数据赠予-done
  
   router.get('/api/basic/data',controller.basic.data);
 

@@ -8,4 +8,4 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shangh
 RUN npm set registry https://registry.npm.taobao.org
 RUN npm i
 # 启动
-CMD npm run dev
+CMD ["npm","run","dev"]

@@ -215,7 +215,7 @@ class User extends Service {
 			list.count=result.count,
 			list.arr=result.rows
 		})
-		return this.ServerResponse.requireData('查询成功', list);
+		return this.ServerResponse.requireData('查询成功12', list);
 	}catch(e){
 		return this.ServerResponse.networkError('网络问题');
 	}

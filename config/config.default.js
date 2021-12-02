@@ -113,7 +113,6 @@ const baseDir = "data/import"
     origin:'*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
-
   return {
     ...config,
     ...userConfig,

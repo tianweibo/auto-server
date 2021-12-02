@@ -1,4 +1,7 @@
 version: '3'
+networks:
+    my-network:
+        driver: bridge
 services:
     the-server: # service name
         build:
@@ -10,10 +13,12 @@ services:
             - 8088:7001 # 宿主机通过 8081 访问
         depends_on:
             - my-mysql
+        restart: always # 出错则重启   
         volumes:
             - ./app:/app/app
             - ./config:/app/config
-            
+        networks: 
+            - my-network
     my-mysql:
         image: mysql # 引用官网 mysql 镜像
         container_name: my-mysql
@@ -31,4 +36,23 @@ services:
             - MYSQL_DATABASE=auto-mysql # 初始化容器时创建数据库
             - MYSQL_ROOT_PASSWORD=314159
             - TZ=Asia/Shanghai # 设置时区
+        networks:           # 使用我们上面定义的网络
+            - my-network
+    the-web: # service name
+        stdin_open:
+            true
+        build:
+            context: ../web-auto # 当前目录
+            dockerfile: ./Dockerfile # 基于 Dockerfile 构建
+        image: the-web # 依赖于当前 Dockerfile 创建出来的镜像
+        container_name: the-web
+        ports:
+            - 8089:8000 # 宿主机通过 8081 访问
+        restart: always # 出错则重启   
+        volumes:
+            - ../web-auto/src:/web/src
+            - ../web-auto/.umirc.ts:/web/.umirc.ts
+        networks:           # 使用我们上面定义的网络
+            - my-network
+       
     

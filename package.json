@@ -42,7 +42,7 @@
     "start": "egg-scripts start --daemon --title=egg-server --env=prod",
     "start:docker": "egg-scripts start --title=egg-server --env=prod",
     "stop": "egg-scripts stop --title=egg-server",
-    "dev": "egg-bin dev --env=dev --ignore-stderr",
+    "dev": "egg-bin dev --env=dev",
     "prd-dev": "cross-env NODE_ENV=prd_dev pm2 start bin/pm2-prd-dev.config.js",
     "prd": "pm2 start bin/www",
     "local": "egg-bin dev",
